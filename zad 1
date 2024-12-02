@@ -174,5 +174,5 @@ int main()
 
 
 
-	std::cout<< nextDay << " " << month << " " << year;
+	std::cout<< nextDay << " " << nextMonth << " " << nextYear;
 }
