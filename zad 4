@@ -11,7 +11,7 @@ void rotate(int arr[MAX_SIZE][MAX_SIZE], int newArr[MAX_SIZE][MAX_SIZE], int row
 			int rowIndex = i+ rotationCtr;
 			if (i + rotationCtr >= rows)
 			{
-				rowIndex = (i + rotationCtr) - rows;
+				rowIndex = (i + rotationCtr) % rows;
 			}
 			newArr[rowIndex][j] = arr[i][j];
 		}
