@@ -1,0 +1,117 @@
+#include <iostream>
+const int MAX_SIZE = 1000;
+bool isLetter(char x)
+{
+	if ((x >= 'a' && x <= 'z') || (x >= 'A' || x <= 'Z') && (x != ' '))
+	{
+		return true;
+	}
+
+	return false;
+}
+void toTweet(char arr[MAX_SIZE], char tweetArr[280],int index1)
+{
+	int counter = 0;
+	for (int i = index1,j=0; i <= 280 && arr[i] != '\0'; i++,j++)
+	{
+		tweetArr[j] = arr[i];
+		counter++;
+	}
+	int temp = counter - 1;
+	int counterChar = 0;
+	if (arr[temp + 1] != ' ')
+	{
+		while (isLetter(arr[temp + 1]) && temp >= 0)
+		{
+			counterChar++;
+			temp--;
+		}
+	}
+	int index = counter - counterChar;
+	std::cout << "trai40 tweeted:";
+	for (int i = 0; i < index; i++)
+	{
+		std::cout << tweetArr[i];
+
+	}
+	tweetArr[index+1]='\0';
+}
+int charCount(char arr[280])
+{
+	int counter = 0;
+	for (int i = 0; arr[i] != '\0' || i<280; i++)
+	{
+		counter++;
+	}
+	return counter;
+}
+
+int letterCount(char arr[MAX_SIZE])
+{
+	int counter = 0;
+	for (int i = 0; arr[i]!='\0'; i++)
+	{
+		if (isLetter(arr[i]))
+		{
+			counter++;
+		}
+	}
+	return counter;
+}
+
+int main()
+{
+	char arr[MAX_SIZE];
+	char tweetArr[280] = { 0 };
+	char secondTweet[280] = { 0 };
+	char thirdTweet[280] = { 0 };
+	char finalTweet[280] = { 0 };
+	std::cin.getline(arr, MAX_SIZE);
+	int counter = 0;
+	int indx = 0;
+
+	for (int i  = 0; i <= 280 && arr[i] != '\0'; i++)
+	{
+		tweetArr[i] = arr[i];
+		counter++;
+	}
+	int temp = counter - 1;
+	int counterChar = 0;
+	if (arr[temp + 1] != ' ')
+	{
+		while (isLetter(arr[temp + 1]) && temp >= 0)
+		{
+			counterChar++;
+			temp--;
+		}
+	}
+	int index = counter - counterChar;
+	std::cout << "trai40 tweeted:";
+	for (int i = 0; i < index; i++)
+	{
+		std::cout << tweetArr[i];
+
+	}
+	int secondCounter = 0;
+	for (int i = 0,j=index; i < 280 && arr[j]!=0 ; i++,j++)
+	{
+		secondTweet[i] = arr[j];
+		secondCounter++;
+	}
+	int temp2 = index + secondCounter;
+	int counterChar2 = 0;
+	while (isLetter(arr[temp2+1]) &&  temp2>= 0)
+	{
+		counterChar2++;
+		temp2--;
+	}
+	int index2 = secondCounter - counterChar2;
+	std::cout << '\n';
+	std::cout << "trai40 tweeted:";
+	for (int i = 0; i < index2; i++)
+	{
+		std::cout << secondTweet[i];
+
+	}
+		
+}
